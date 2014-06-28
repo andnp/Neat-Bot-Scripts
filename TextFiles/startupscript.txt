@@ -1,0 +1,662 @@
+//#######################################################
+//#-----------------------------------------------------#
+//#-  FailSafe L33t Script --- v1.72 --- by FailSafe   -#
+//#-----------------------------------------------------#
+//#######################################################
+//#######################################################
+//###-------------------------------------------------###
+//##-               |PRE-CONFIGURATIONS|              -##
+//###-------------------------------------------------###
+//#######################################################
+//-----------################################----------\\
+intro = "off"
+goto Introverify
+
+//#-----------SERVER SCHEDULED MAINTENANCE--------------#
+//#   Adjust to your server's maintenance times below   #
+//#-----------------------------------------------------#
+
+label Introverify
+ifgosub ( intro == "off" ) Options
+goto Mainintro
+
+//++++++++++++++++++++|
+label Options 
+//++++++++++++++++++++|
+//#######################################################
+//#######################################################
+//#-----------------------------------------------------#
+//#-                     |OPTIONS|                     -#
+//#-----------------------------------------------------#
+//#######################################################
+//############## Default: quickcity = "no" ##############
+//#######################################################
+// -:--------------------------------------------------:-
+// -: This requires you to have 350k of each resource  :-
+// -:--------------------------------------------------:-
+quickcity = "no"
+
+//#######################################################
+//#######################################################
+//#-----------------------------------------------------#
+//#-                     |SETTINGS|                    -#
+//#-----------------------------------------------------#
+//#######################################################
+//############## Default: usewealth = "no" ##############
+//#######################################################
+// -:--------------------------------------------------:-
+// -: Set usewealth to either "yes" or "no" to use WoN :-
+// -:--------------------------------------------------:-
+usewealth = "no"
+heroname = "First"
+flagname = "And"
+cityname = "V1"
+
+//#######################################################
+//#######################################################
+//#-----------------------------------------------------#
+//#-               |City's Resource Type|              -#
+//#-----------------------------------------------------#
+//####################################################### 
+//########## Default: resourcecity = "mixcity" ##########
+//#######################################################
+// -:--------------------------------------------------:-
+// -: wood, iron, stone city's requires 500k of each   :- 
+// -: resource. mixcity is for new accounts mainly     :-
+// -:--------------------------------------------------:-
+// -:------------|Farm|---|Saw|---|Quarry|---|Iron|-----:-
+// -: mixcity       1       11        3          7      :-
+// -: stonecity     1        1       19          1      :-
+// -: ironcity      1        1        1         19      :-
+// -: woodcity      1       19        1          1      :-
+// -: custom        ?        ?        ?          ?      :- <-- Coming Soon!!
+// -:---------------------------------------------------:-
+resourcecity = "mixcity"
+
+//#######################################################
+//#--------------|-|                  |-|---------------#
+//#--------------|-|NO EDIT BELOW THIS|-|---------------#
+//#--------------|-|                  |-|---------------#
+//#######################################################
+goto Main
+
+//++++++++++++++++++++|
+label Main
+//++++++++++++++++++++|
+useitem Newbies_Package
+completequests routine
+create house 3
+upgrade house
+sleep 5
+create inn 23
+create farm 1001
+create saw 1002
+create quarry 1005
+create iron 1006
+completequests routine
+repeat 4
+create feasting 20
+create rally 24
+completequests routine
+production 100 100 100 100
+completequests routine
+sleep 5
+settaxrate 20
+completequests routine
+sleep 5
+execute "renamecity " + cityname
+completequests routine
+sleep 5
+execute "changeflag " + flagname
+completequests routine
+sleep 5
+findhero pol
+completequests routine
+setmayor pol
+sleep 5
+completequests routine
+rewardheroes
+echo "I have finished the Administrative quests!"
+sleep 5
+execute "changeheroname " + city.heroes[0].name + " " + heroname
+sleep 10
+echo "Your Heroes name is" + m_city.cityManager.heroes[0].name"!"
+sleep 5
+echo "Speed this up. It's OK!"!
+sleep 5
+upgrade town
+completequests routine
+repeat 1
+ifgosub (usewealth == "yes") Won
+sleep 5
+completequests routine
+echo "Speed this up. It's OK! -Use 15 minute SpeedUp-"
+create academy 22
+echo "Speed this up. It's OK! -Use 15 minute SpeedUp-"
+create market 25
+completequests routine
+goal research ag:1,lu:1,mi:2,ms:1,metal:2
+echo "Speed this up. It's OK! -Use 15 minute SpeedUp-"
+create embassy 21
+create barrack 11
+completequests routine
+upgrade quarry
+upgrade iron
+repeat 2
+create forge 28
+upgrade forge
+echo "Speed this up. It's OK! -Use 15 minute SpeedUp-"
+create workshop 19
+completequests routine
+repeat 1
+echo "Speed this up. It's OK! -Use 2x 15 minute SpeedUps-"
+create wall
+completequests routine
+walldefense trap 10
+echo "LET THIS FINISH NORMALLY!"
+create beacon 27
+completequests routine
+echo "LET THIS FINISH NORMALLY!"
+upgrade beacon
+completequests routine
+repeat 1
+walldefense trap 100 demo
+echo "Speed this up. It's OK! -Use 15 minute SpeedUp-"
+upgrade beacon
+completequests routine
+repeat 1
+echo "Speed this up. It's OK! -Use 15 minute SpeedUp-"
+upgrade academy
+echo "Speed this up. It's OK! -Use 1 hour SpeedUp-"
+upgrade town
+sleep 5
+useitem Package_for_Lords
+completequests routine
+repeat 3
+
+//++++++++++++++++++++|
+label Contscript
+//++++++++++++++++++++|
+upgrade academy
+echo "Speed this up. It's OK! -Use a 1 hour plus a 15 minute SpeedUp-"
+upgrade wall
+completequests routine
+echo "Speed this up. It's OK! -Use a 2.5 hour SpeedUp-"
+upgrade town
+completequests routine
+echo "Speed this up. It's OK! -Use a 2.5 hour SpeedUp-"
+upgrade wall
+completequests routine
+sleep 5
+ifgosub ( resourcecity == "mixcity" ) Mixcity
+ifgosub ( resourcecity == "ironcity" ) Ironcity
+ifgosub ( resourcecity == "woodcity" ) Woodcity
+ifgosub ( resourcecity == "stonecity" ) Stonecity
+
+//#-----------------------------------------------------#
+//#-----------------------------------------------------#
+//#--------------------- MIXED CITY --------------------#
+//#-----------------------------------------------------#
+//#-----------------------------------------------------#
+//
+//++++++++++++++++++++|
+label Mixcity
+//++++++++++++++++++++|
+echo "You have selected mixcity!"
+sleep 15
+levy wood
+completequests routine
+create saw 1003
+create saw 1004
+create saw 1009
+create saw 1010
+create saw 1011
+create saw 1012
+create saw 1017
+create saw 1018
+create saw 1019
+create saw 1020
+upgrade saw
+repeat 22
+create quarry 1013
+create quarry 1021
+upgrade quarry
+repeat 5
+create iron 1007
+create iron 1008
+create iron 1014
+create iron 1015
+create iron 1016
+create iron 1022
+upgrade iron
+repeat 6
+completequests routine
+sleep 30
+create house 4
+create house 5
+create house 6
+create house 7
+create house 8
+create house 9
+create house 10
+completequests routine
+repeat 1
+upgrade house
+repeat 11
+completequests routine
+repeat 1
+upgrade farm
+repeat 3
+completequests routine
+upgrade farm
+useitem Civil_Code
+completequests routine
+useitem Arch_Saw
+useitem Blower
+useitem Plowshares
+useitem Quarrying_Tools
+sleep 5
+useitem Junior_Medal_Box
+completequests routine
+buyitem amulet
+completequests routine
+useitem amulet
+repeat 1
+completequests routine
+useitem amulet
+create stable 18
+goto End
+
+//#-----------------------------------------------------#
+//#-----------------------------------------------------#
+//#--------------------- WOOD CITY ---------------------#
+//#-----------------------------------------------------#
+//#-----------------------------------------------------#
+//
+//++++++++++++++++++++|
+label Woodcity
+//++++++++++++++++++++|
+echo "You have selected woodcity! If you do not have 500k of each resource then this will NOT work!"
+sleep 15
+levy wood
+completequests routine
+upgrade farm
+repeat 3
+completequests routine
+upgrade farm
+completequests routine
+create stable 18
+completequests routine
+create wood 1003
+create wood 1004
+create wood 1007
+create wood 1008
+create wood 1009
+create wood 1010
+create wood 1011
+create wood 1012
+create wood 1013
+create wood 1014
+create wood 1015
+create wood 1016
+create wood 1017
+create wood 1018
+create wood 1019
+create wood 1020
+create wood 1021
+create wood 1022
+upgrade wood
+repeat 36
+sleep 5
+create house 4
+create house 5
+create house 6
+create house 7
+create house 8
+create house 9
+create house 10
+upgrade house
+repeat 13
+completequests routine
+repeat 1
+completequests routine
+useitem Civil_Code
+completequests routine
+repeat 1
+completequests routine
+useitem Junior_Medal_Box
+sleep 10
+completequests routine
+buyitem amulet
+completequests routine
+useitem amulet
+completequests routine
+useitem amulet
+repeat 2
+goto End
+
+//#-----------------------------------------------------#
+//#-----------------------------------------------------#
+//#--------------------- STONE CITY --------------------#
+//#-----------------------------------------------------#
+//#-----------------------------------------------------#
+//
+//++++++++++++++++++++|
+label Stonecity
+//++++++++++++++++++++|
+echo "You have selected stonecity! If you do not have 500k of each resource then this will NOT work!"
+sleep 15
+levy wood
+completequests routine
+upgrade farm
+repeat 3
+completequests routine
+upgrade farm
+completequests routine
+create stable 18
+completequests routine
+create stone 1003
+create stone 1004
+create stone 1007
+create stone 1008
+create stone 1009
+create stone 1010
+create stone 1011
+create stone 1012
+create stone 1013
+create stone 1014
+create stone 1015
+create stone 1016
+create stone 1017
+create stone 1018
+create stone 1019
+create stone 1020
+create stone 1021
+create stone 1022
+upgrade stone
+repeat 35
+sleep 5
+create house 4
+create house 5
+create house 6
+create house 7
+create house 8
+create house 9
+create house 10
+upgrade house
+repeat 13
+completequests routine
+repeat 1
+useitem Civil_Code
+completequests routine
+repeat 1
+sleep 5
+useitem Junior_Medal_Box
+sleep 10
+completequests routine
+buyitem amulet
+completequests routine
+useitem amulet
+completequests routine
+useitem amulet
+repeat 2
+goto End
+
+//#-----------------------------------------------------#
+//#-----------------------------------------------------#
+//#--------------------- IRON CITY ---------------------#
+//#-----------------------------------------------------#
+//#-----------------------------------------------------#
+//
+//++++++++++++++++++++|
+label Ironcity
+//++++++++++++++++++++|
+echo "You selected an ironcity! If you do not have 500k of each resource then this will NOT work!"
+sleep 15
+levy wood
+completequests routine
+upgrade farm
+repeat 3
+completequests routine
+upgrade farm
+completequests routine
+create stable 18
+completequests routine
+create iron 1003
+create iron 1004
+create iron 1007
+create iron 1008
+create iron 1009
+create iron 1010
+create iron 1011
+create iron 1012
+create iron 1013
+create iron 1014
+create iron 1015
+create iron 1016
+create iron 1017
+create iron 1018
+create iron 1019
+create iron 1020
+create iron 1021
+create iron 1022
+upgrade iron
+repeat 17
+sleep 5
+create house 4
+create house 5
+create house 6
+create house 7
+create house 8
+create house 9
+create house 10
+upgrade house
+repeat 13
+completequests routine
+repeat 1
+useitem Civil_Code
+completequests routine
+repeat 1
+sleep 5
+useitem Junior_Medal_Box
+sleep 10
+completequests routine
+buyitem amulet
+completequests routine
+useitem amulet
+completequests routine
+useitem amulet
+repeat 2
+goto End
+
+//++++++++++++++++++++|
+label Quickcitybuild
+//++++++++++++++++++++|
+echo "quickcity is on! REMEMBER!!!! If you DO NOT have the 500k of each resource then this will NOT work!"
+useitem Newbies_Package
+completequests routine
+create house 3
+upgrade house
+sleep 5
+create inn 23
+create farm 1001
+create saw 1002
+create quarry 1005
+create iron 1006
+completequests routine
+repeat 4
+create feasting 20
+create rally 24
+completequests routine
+production 100 100 100 100
+completequests routine
+sleep 5
+settaxrate 20
+completequests routine
+sleep 5
+execute "renamecity " + cityname + "4"
+completequests routine
+sleep 5
+execute "changeflag " + flagname
+completequests routine
+sleep 5
+findhero pol
+completequests routine
+setmayor pol
+sleep 5
+completequests routine
+rewardheroes
+echo "I have finished the Administrative quests!"
+sleep 5
+execute "changeheroname " + city.heroes[0].name + " " + heroname
+sleep 10
+echo "Your Heroes name is " + m_city.cityManager.heroes[0].name"!"
+sleep 5
+upgrade town
+completequests routine
+repeat 1
+ifgosub (usewealth == "yes") Won
+sleep 5
+completequests routine
+echo "Speed this up. It's OK! -Use 15 minute SpeedUp-"
+create academy 22
+echo "Speed this up. It's OK! -Use 15 minute SpeedUp-"
+create market 25
+completequests routine
+goal research ag:1,lu:1,mas:1,mi:2,ms:2
+echo "Speed this up. It's OK! -Use 15 minute SpeedUp-"
+create embassy 21
+create barrack 11
+completequests routine
+upgrade quarry
+upgrade iron
+repeat 2
+create forge 28
+upgrade forge
+echo "Speed this up. It's OK! -Use 15 minute SpeedUp-"
+create workshop 19
+completequests routine
+repeat 2
+echo "Speed this up. It's OK! -Use 2x 15 minute SpeedUps-"
+create wall
+completequests routine
+create beacon 27
+completequests routine
+upgrade beacon
+completequests routine
+echo "Speed this up. It's OK! -Use 15 minute SpeedUp-"
+upgrade beacon
+completequests routine
+repeat 1
+upgrade academy
+completequests routine
+echo "Speed this up. It's OK! -Use a 1 hour SpeedUp-"
+upgrade town
+sleep 5
+useitem Package_for_Lords
+sleep 5
+completequests routine
+repeat 1
+upgrade academy
+upgrade barrack
+repeat 1
+echo "Speed this up. It's OK! -Use a 1 hour SpeedUp-"
+upgrade wall
+completequests routine
+resetgoals
+goal research ms:4,mt:3,ir:3,mas:2
+echo "Speed this up if you want, only if you're in a hurry."
+upgrade town
+completequests routine
+echo "Speed this up if you want, only if you're in a hurry."
+upgrade wall
+completequests routine
+create barrack 0
+create barrack 1
+create barrack 2
+create barrack 11
+create barrack 12
+create barrack 13
+create barrack 14
+create barrack 15
+create barrack 16
+create barrack 26
+create barrack 29
+create barrack 30
+create barrack 31
+upgrade wall
+completequests routine
+resetgoals
+goal research ms:2,lu:5,mt:3,ir:3,mas:2
+upgrade wall
+completequests routine
+upgrade town
+completequests routine
+repeat 1
+ifgosub ( resourcecity == "mixcity" ) Mixcity
+ifgosub ( resourcecity == "ironcity" ) Ironcity
+ifgosub ( resourcecity == "woodcity" ) Woodcity
+ifgosub ( resourcecity == "stonecity" ) Stonecity
+
+//++++++++++++++++++++|
+label Won
+//++++++++++++++++++++|
+execute "useheroitem " + heroname + " The_Wealth_of_Nations"
+gosubreturn
+
+//++++++++++++++++++++|
+label Checktrades
+//++++++++++++++++++++|
+ifgosub ( m_city.cityManager.resource.stone.amount >= 55000 ) Contscript
+echo "You have resources coming! We will wait until they arrive!"
+sleep 180
+loop Checktrades 15
+echo "Woot! Resource are here!"
+goto Contscript
+
+//++++++++++++++++++++|
+label Nogold
+//++++++++++++++++++++|
+sleep 30
+goto Getresources
+
+//++++++++++++++++++++|
+label Mainintro
+//++++++++++++++++++++|
+echo "Welcome to my script everyone!"
+echo "You need to set up a few things first before continuing! Once you have edited the options, change intro to "off" first before running again."
+echo "For those that are new, if you just want a nice regular build then just turn INTRO off and run the script again!"
+echo "Enjoy!"
+sleep 9999
+
+//++++++++++++++++++++|
+label End
+//++++++++++++++++++++|
+echo "Thank you for using FailSafes L33T Script! For suggestions or ideas please Email Me support@aiocomputerrepair.com!"
+sleep 15
+execute "worldchat q "
+completequests routine
+goto Levyres
+
+//++++++++++++++++++++|
+label Levyres
+//++++++++++++++++++++|
+levy wood
+comfort pray
+sleep 900
+levy wood
+comfort pray
+sleep 900
+levy iron
+comfort pray
+sleep 900
+levy stone
+comfort pray
+sleep 900
+levy food
+comfort pray
+sleep 900
+levy food
+comfort pray
+sleep 900
+loop 10 Levyres
