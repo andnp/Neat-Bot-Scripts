@@ -2,10 +2,17 @@
 gosub variables
 
 label main
-
+@POST phpFilePath + "CheckTime.php" {}
+time = $result
+echo time
 goto main
+
+label runChecks
 
 
 label variables
 password = 972965
+time = 0
+phpFilePath = "http://localhost/Neat-Bot-Scripts/phpFiles/"
+txtFilePath = "http://localhost/Neat-Bot-Scripts/TextFiles/"
 return
