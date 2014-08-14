@@ -2,17 +2,18 @@
 gosub variables
 
 label main
-@POST phpFilePath + "CheckTime.php" {}
-time = $result
-echo time
+time = date.getTime()
+ifgosub(time > checkTime)
 goto main
 
 label runChecks
-
+checkTime = time + 60
+return
 
 label variables
 password = 972965
-time = 0
+time = date.getTime()
+checkTime = time
 phpFilePath = "http://localhost/Neat-Bot-Scripts/phpFiles/"
 txtFilePath = "http://localhost/Neat-Bot-Scripts/TextFiles/"
 return
