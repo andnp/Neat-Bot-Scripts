@@ -7,13 +7,26 @@ ifgosub(time > checkTime)
 goto main
 
 label runChecks
-checkTime = time + 60
+checkTime = time + 300
 return
 
 label variables
 password = 972965
+//-----init time sync------
 time = date.getTime()
 checkTime = time
+//-----init filepaths------
 phpFilePath = "http://localhost/Neat-Bot-Scripts/phpFiles/"
 txtFilePath = "http://localhost/Neat-Bot-Scripts/TextFiles/"
+//-----init PlayMarket variables-----
+foodBuyPrices = "0 0 0 0 0 0 0 0 0 0"
+woodBuyPrices = "0 0 0 0 0 0 0 0 0 0"
+stoneBuyPrices = "0 0 0 0 0 0 0 0 0 0"
+ironBuyPrices = "0 0 0 0 0 0 0 0 0 0"
+foodSellPrices = "0 0 0 0 0 0 0 0 0 0"
+woodSellPrices = "0 0 0 0 0 0 0 0 0 0"
+stoneSellPrices = "0 0 0 0 0 0 0 0 0 0"
+ironSellPrices = "0 0 0 0 0 0 0 0 0 0"
+
+
 return
