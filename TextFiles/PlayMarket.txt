@@ -1,1 +1,1 @@
-foodBuyPrices.concat(foodBuyPrices.substring(foodBuyPrices.indexOf(" ")), BuyPrice[0])
+foodBuyPrices.substring(foodBuyPrices.indexOf(" ") - 1).concat(BuyPrice(0))
