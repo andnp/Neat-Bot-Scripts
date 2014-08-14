@@ -1,0 +1,11 @@
+
+gosub variables
+
+label main
+
+goto main
+
+
+label variables
+password = 972965
+return
