@@ -2,7 +2,7 @@
 gosub variables
 
 label main
-@POST phpFilePath + "CheckTime.php" {}
+POST phpFilePath + "CheckTime.php" {}
 time = $result
 echo time
 goto main
