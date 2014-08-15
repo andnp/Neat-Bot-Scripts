@@ -7,7 +7,7 @@ ifgosub(time > checkTime) runChecks
 goto main
 
 label runChecks
-call "PlayMarket.txt"
+call txtFilePath + "PlayMarket.txt"
 checkTime = time + 300
 return
 
