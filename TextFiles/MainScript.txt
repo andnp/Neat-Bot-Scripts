@@ -2,7 +2,7 @@
 gosub variables
 
 label main
-time = date.getTime()
+time = date().getTime()
 ifgosub(time > checkTime) runChecks
 goto main
 
@@ -14,7 +14,7 @@ return
 label variables
 password = 972965
 //-----init time sync------
-time = date.getTime()
+time = date().getTime()
 checkTime = time
 //-----init filepaths------
 phpFilePath = "http://localhost/Neat-Bot-Scripts/phpFiles/"
