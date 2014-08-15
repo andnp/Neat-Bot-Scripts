@@ -28,7 +28,7 @@ function main(){
 function averageFromString($str){
 	$avg = 0;
 	$array = explode(" ", $str);
-	for($i = 0; $i < $array.count(); $i++){
+	for($i = 0; $i < count($array); $i++){
 		$avg += floatval($array[$i]);
 	}
 	return $avg / 10;
@@ -37,7 +37,7 @@ function averageFromString($str){
 function stanDevFromString($str, $mean){
 	$stanDev = 0;
 	$array = explode(" ", $str);
-	for($i = 0; $i < $array.count(); $i++){
+	for($i = 0; $i < count($array); $i++){
 		$stanDev += pow($array[$i] - $mean, 2);
 	}
 	$stanDev = $stanDev / 10;
