@@ -1,0 +1,5 @@
+command "listmail"
+str = $result
+echo str.substring(str.search("From: ") + 6,str.search("To: ") - 1)
+echo str.substring(str.search("Subject: ") + 9, str.search("Date: ") - 1)
+echo str.substring(str.lastIndexOf("\n")+ 1, str.length)
