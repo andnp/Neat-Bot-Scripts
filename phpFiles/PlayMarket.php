@@ -52,7 +52,11 @@ function makeDecision($type,$action,$prices, $amount){
 	$mean = averageFromString($prices);
 	$stanDev = stanDevFromString($prices, $mean);
 	$currentPrice = getCurrentPrice($prices);
-	$zscore = ($currentPrice - $mean) / $stanDev;
+	if($stanDev == 0){
+		$zscore = 0;
+	} else {
+		$zscore = ($currentPrice - $mean) / $stanDev;
+	}
 	$acted = false;
 	if($action == "buy"){
 		if($zscore > .5){
