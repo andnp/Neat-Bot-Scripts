@@ -1,17 +1,17 @@
 <?PHP
-String $fbp = $_REQUEST("fbp");
-String $wbp = $_REQUEST("wbp");
-String $sbp = $_REQUEST("sbp");
-String $ibp = $_REQUEST("ibp");
-String $fsp = $_REQUEST("fsp");
-String $wsp = $_REQUEST("wsp");
-String $ssp = $_REQUEST("ssp");
-String $isp = $_REQUEST("isp");
-int $fa = $_REQUEST("fa");
-int $wa = $_REQUEST("wa");
-int $sa = $_REQUEST("sa");
-int $ia = $_REQUEST("ia");
-int $ga = $_REQUEST("ga");
+$fbp = $_REQUEST("fbp");
+$wbp = $_REQUEST("wbp");
+$sbp = $_REQUEST("sbp");
+$ibp = $_REQUEST("ibp");
+$fsp = $_REQUEST("fsp");
+$wsp = $_REQUEST("wsp");
+$ssp = $_REQUEST("ssp");
+$isp = $_REQUEST("isp");
+$fa = $_REQUEST("fa");
+$wa = $_REQUEST("wa");
+$sa = $_REQUEST("sa");
+$ia = $_REQUEST("ia");
+$ga = $_REQUEST("ga");
 main();
 
 function main(){
@@ -25,30 +25,30 @@ function main(){
 	makeDecision("iron", "sell", $isp, $ia);
 }
 
-function averageFromString(String $str){
+function averageFromString($str){
 	$avg = 0;
 	$array = explode(" ", $str);
-	for(int $i = 0; $i < 10; $i++){
+	for($i = 0; $i < 10; $i++){
 		$avg += floatval($array[$i]);
 	}
 	return $avg / 10;
 }
 
-function stanDevFromString(String $str, $mean){
+function stanDevFromString($str, $mean){
 	$stanDev = 0;
 	$array = explode(" ", $str);
-	for(int $i = 0; $i < 10; $i++){
+	for($i = 0; $i < 10; $i++){
 		$stanDev += pow($array[$i] - $mean, 2);
 	}
 	$stanDev = $stanDev / 10;
 	return sqrt($stanDev);
 }
 
-function getCurrentPrice(String $str){
+function getCurrentPrice($str){
 	return explode(" ", $str)[9];
 }
 
-function makeDecision(String $type, String $action, String $prices, $amount){
+function makeDecision($type,$action,$prices, $amount){
 	$mean = averageFromString($prices);
 	$stanDev = stanDevFromString($prices, $mean);
 	$currentPrice = getCurrentPrice($prices);
