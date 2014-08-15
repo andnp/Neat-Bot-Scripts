@@ -2,20 +2,19 @@
 gosub variables
 
 label main
-time = date().getTime()
-ifgosub(time > checkTime) runChecks
+loops = loops + 1
+ifgosub(loops > 120) runChecks
 goto main
 
 label runChecks
 call txtFilePath + "PlayMarket.txt"
-checkTime = time + 300
+loops = 0
 return
 
 label variables
 password = 972965
 //-----init time sync------
-time = date().getTime()
-checkTime = time
+loops = 0
 //-----init filepaths------
 phpFilePath = "http://localhost/Neat-Bot-Scripts/phpFiles/"
 txtFilePath = "http://localhost/Neat-Bot-Scripts/TextFiles/"
