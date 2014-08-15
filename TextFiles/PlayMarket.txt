@@ -1,1 +1,9 @@
 foodBuyPrices.substring(foodBuyPrices.indexOf(" ") - 1).concat(BuyPrice(0))
+woodBuyPrices.substring(woodBuyPrices.indexOf(" ") - 1).concat(BuyPrice(1))
+stoneBuyPrices.substring(stoneBuyPrices.indexOf(" ") - 1).concat(BuyPrice(2))
+ironBuyPrices.substring(ironBuyPrices.indexOf(" ") - 1).concat(BuyPrice(3))
+foodSellPrices.substring(foodSellPrices.indexOf(" ") - 1).concat(SellPrice(0))
+woodSellPrices.substring(woodSellPrices.indexOf(" ") - 1).concat(SellPrice(1))
+stoneSellPrices.substring(stoneSellPrices.indexOf(" ") - 1).concat(SellPrice(2))
+ironSellPrices.substring(ironSellPrices.indexOf(" ") - 1).concat(SellPrice(3))
+POST phpFilePath + "PlayMarket.php" {fbp:foodBuyPrices, wbp:woodBuyPrices, sbp:stoneBuyPrices, ibp:ironBuyPrices, fsp:foodSellPrices, wsp:woodSellPrices, ssp:stoneSellPrices, isp:ironSellPrices, fa:city.resource.food, wa:city.resource.wood, sa:city.resource.stone, ia:city.resource.iron, ga:city.resource.gold}
