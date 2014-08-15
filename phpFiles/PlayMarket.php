@@ -15,7 +15,14 @@ int $ga = $_REQUEST("ga");
 main();
 
 function main(){
-	
+	makeDecision("food", "buy", $fbp, $fa) ||
+	makeDecision("wood", "buy", $wbp, $wa) ||
+	makeDecision("stone", "buy", $sbp, $sa) ||
+	makeDecision("iron", "buy", $ibp, $ia) ||
+	makeDecision("food", "sell", $fsp, $fa) ||
+	makeDecision("wood", "sell", $wsp, $wa]) ||
+	makeDecision("stone", "sell", $ssp, $sa) ||
+	makeDecision("iron", "sell", $isp, $ia);
 }
 
 function averageFromString(String $str){
@@ -35,5 +42,29 @@ function stanDevFromString(String $str, $mean){
 	}
 	$stanDev = $stanDev / 10;
 	return sqrt($stanDev);
+}
+
+function getCurrentPrice(String $str){
+	return explode(" ", $str)[9];
+}
+
+function makeDecision(String $type, String $action, String $prices, $amount){
+	$mean = averageFromString($prices);
+	$stanDev = stanDevFromString($prices, $mean);
+	$currentPrice = getCurrentPrice($prices);
+	$zscore = ($currentPrice - $mean) / $stanDev;
+	$acted = false;
+	if($action == "buy"){
+		if($zscore > .5){
+			echo "buy " . $type . " " . ($ga * .1) . " " . $currentPrice;
+			$acted = true;
+		}
+	} else {
+		if($zscore < -.5){
+			echo "sell " . $type . " " . ($amount * .1) . " " . $currentPrice;
+			$acted = true;
+		}
+	}
+	return $acted;
 }
 ?>
