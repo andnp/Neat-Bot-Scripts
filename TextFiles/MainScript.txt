@@ -7,7 +7,7 @@ ifgosub(loops > 10) runChecks
 goto main
 
 label runChecks
-call txtFilePath + "PlayMarket.txt"
+call txtFilePath + "SmartTrade.txt"
 
 loops = 0
 return
