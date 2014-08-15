@@ -20,7 +20,7 @@ function main(){
 	makeDecision("stone", "buy", $sbp, $sa) ||
 	makeDecision("iron", "buy", $ibp, $ia) ||
 	makeDecision("food", "sell", $fsp, $fa) ||
-	makeDecision("wood", "sell", $wsp, $wa]) ||
+	makeDecision("wood", "sell", $wsp, $wa) ||
 	makeDecision("stone", "sell", $ssp, $sa) ||
 	makeDecision("iron", "sell", $isp, $ia);
 }
