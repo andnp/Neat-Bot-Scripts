@@ -30,6 +30,8 @@ foodSellPrices = "0 0 0 0 0 0 0 0 0 0"
 woodSellPrices = "0 0 0 0 0 0 0 0 0 0"
 stoneSellPrices = "0 0 0 0 0 0 0 0 0 0"
 ironSellPrices = "0 0 0 0 0 0 0 0 0 0"
+//-----init Friends------
+friendList = ["Grimbold","Theoctistu"]
 
 
 return

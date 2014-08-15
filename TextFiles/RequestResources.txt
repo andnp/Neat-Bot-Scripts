@@ -1,0 +1,47 @@
+ifgosub(city.resource.food < resMin) requestFood
+ifgosub(city.resource.wood < resMin) requestWood
+ifgosub(city.resource.stone < resMin) requestStone
+ifgosub(city.resource.iron < resMin) requestIron
+ifgosub(city.resource.gold < resMin) requestGold
+
+
+
+label requestFood
+i = 0
+label foodLoop
+command mail friendList[i] + " " + password + " sendresource food"
+i = i + 1
+if(i > friendList.length()) return
+goto foodLoop
+
+label requestWood
+i = 0
+label woodLoop
+command mail friendList[i] + " " + password + " sendresource wood"
+i = i + 1
+if(i > friendList.length()) return
+goto woodLoop
+
+label requestStone
+i = 0
+label stoneLoop
+command mail friendList[i] + " " + password + " sendresource stone"
+i = i + 1
+if(i > friendList.length()) return
+goto stoneLoop
+
+label requestIron
+i = 0
+label ironLoop
+command mail friendList[i] + " " + password + " sendresource iron"
+i = i + 1
+if(i > friendList.length()) return
+goto ironLoop
+
+label requestGold
+i = 0
+label goldLoop
+command mail friendList[i] + " " + password + " sendresource gold"
+i = i + 1
+if(i > friendList.length()) return
+goto goldLoop
