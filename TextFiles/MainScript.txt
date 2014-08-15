@@ -3,16 +3,19 @@ gosub variables
 
 label main
 loops = loops + 1
-ifgosub(loops > 120) runChecks
+ifgosub(loops > 10) runChecks
 goto main
 
 label runChecks
 call txtFilePath + "PlayMarket.txt"
+
 loops = 0
 return
 
 label variables
 password = 972965
+//-----init resources------
+resMin = 25000
 //-----init time sync------
 loops = 0
 //-----init filepaths------
