@@ -1,17 +1,17 @@
 <?PHP
-$fbp = $_REQUEST("fbp");
-$wbp = $_REQUEST("wbp");
-$sbp = $_REQUEST("sbp");
-$ibp = $_REQUEST("ibp");
-$fsp = $_REQUEST("fsp");
-$wsp = $_REQUEST("wsp");
-$ssp = $_REQUEST("ssp");
-$isp = $_REQUEST("isp");
-$fa = $_REQUEST("fa");
-$wa = $_REQUEST("wa");
-$sa = $_REQUEST("sa");
-$ia = $_REQUEST("ia");
-$ga = $_REQUEST("ga");
+$fbp = $_REQUEST["fbp"];
+$wbp = $_REQUEST["wbp"];
+$sbp = $_REQUEST["sbp"];
+$ibp = $_REQUEST["ibp"];
+$fsp = $_REQUEST["fsp"];
+$wsp = $_REQUEST["wsp"];
+$ssp = $_REQUEST["ssp"];
+$isp = $_REQUEST["isp"];
+$fa = $_REQUEST["fa"];
+$wa = $_REQUEST["wa"];
+$sa = $_REQUEST["sa"];
+$ia = $_REQUEST["ia"];
+$ga = $_REQUEST["ga"];
 main();
 
 function main(){
