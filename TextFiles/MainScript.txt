@@ -2,17 +2,12 @@
 gosub variables
 
 label main
-<<<<<<< HEAD
-POST phpFilePath + "CheckTime.php" {}
-time = $result
-echo time
-=======
 time = date.getTime()
-ifgosub(time > checkTime)
->>>>>>> origin/master
+ifgosub(time > checkTime) runChecks
 goto main
 
 label runChecks
+call "PlayMarket.txt"
 checkTime = time + 300
 return
 
