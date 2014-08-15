@@ -3,7 +3,7 @@ gosub variables
 
 label main
 loops = loops + 1
-ifgosub(loops > 30) runChecks
+ifgosub(loops > 10) runChecks
 goto main
 
 label runChecks
