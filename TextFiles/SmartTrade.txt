@@ -30,7 +30,6 @@ prices = [ Price(res, aggr), Price(res, 1 - aggr), Price(res, aggr) * (1 + comm)
 resGold = city.reservedResource.gold + extra[4] + max(0, city.resource.gold - city.reservedResource.gold - extra[4]) * 0.8
 canSell = (city.resource[resName].amount - city.reservedResource[resName] - extra[res]) * 0.8
 sellLimit = (city.resource.gold - resGold) / prices[3]
-if canSell > 0 if sellLimit >=1 if prices[1] - prices[3] < prices[2] * (1 + gain) goto nextres
 if sellLimit < 1 sellLimit = min(max(1, (resGold - city.resource.gold) / prices[1] / 2), (city.resource.gold - 1) / prices[3]) // we are low on gold
 sellVolume = floor(min(canSell, sellLimit, MAX_TRADE - max(0, floor(min(maxRes - city.resource[resName].amount, (city.resource.gold - resGold) / prices[2]))) / 3))
 if sellVolume > 0 execute "sell " + res + " " + sellVolume + " " + prices[1]
