@@ -1,15 +1,15 @@
 <?PHP
 require "ToJava.php";
-$food = $_REQUEST["food"];
-$wood = $_REQUEST["wood"];
-$stone = $_REQUEST["stone"];
-$iron = $_REQUEST["iron"];
-$gold = $_REQUEST["gold"];
-$minRes = $_REQUEST["min"];
-$coords = $_REQUEST["coords"];
 main();
 
 function main(){
+	$food = $_REQUEST['food'];
+	$wood = $_REQUEST['wood'];
+	$stone = $_REQUEST['stone'];
+	$iron = $_REQUEST['iron'];
+	$gold = $_REQUEST['gold'];
+	$minRes = $_REQUEST['min'];
+	$coords = $_REQUEST['coords'];
 	$result = "sendresources " . $coords . " ";
 	if($food < $minRes){
 		$result = $result . "f ";
