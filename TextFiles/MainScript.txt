@@ -4,16 +4,17 @@ gosub variables
 label main
 loops = loops + 1
 ifgosub(loops > 10) runChecks
+
 goto main
 
 label runChecks
 call txtFilePath + "SmartTrade.txt"
+call txtFilePath + "RequestResources.txt"
 
 loops = 0
 return
 
 label variables
-password = 972965
 //-----init resources------
 resMin = 25000
 //-----init time sync------
@@ -21,17 +22,7 @@ loops = 0
 //-----init filepaths------
 phpFilePath = "http://localhost/Neat-Bot-Scripts/phpFiles/"
 txtFilePath = "http://localhost/Neat-Bot-Scripts/TextFiles/"
-//-----init PlayMarket variables-----
-foodBuyPrices = "0 0 0 0 0 0 0 0 0 0"
-woodBuyPrices = "0 0 0 0 0 0 0 0 0 0"
-stoneBuyPrices = "0 0 0 0 0 0 0 0 0 0"
-ironBuyPrices = "0 0 0 0 0 0 0 0 0 0"
-foodSellPrices = "0 0 0 0 0 0 0 0 0 0"
-woodSellPrices = "0 0 0 0 0 0 0 0 0 0"
-stoneSellPrices = "0 0 0 0 0 0 0 0 0 0"
-ironSellPrices = "0 0 0 0 0 0 0 0 0 0"
-//-----init Friends------
-friendList = ["Grimbold","Theoctistu"]
+
 
 
 return
