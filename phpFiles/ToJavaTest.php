@@ -15,7 +15,7 @@ function sendDataToJava($data){
 		//print 'SUCCESS!<br />';
 		fwrite($fp, $data);
 		while (! feof($fp)) {
-		  $return += fgets($fp, 4096);
+		  $return += fgets($fp);
 		}
 		fclose($fp);
 	}
