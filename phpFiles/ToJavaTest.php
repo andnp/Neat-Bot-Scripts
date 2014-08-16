@@ -1,5 +1,5 @@
 <?PHP
-echo sendDataToJava("text");
+echo sendDataToJava("texttexttexttexttexttexttexttexttexttexttexttext");
 
 function sendDataToJava($data){
 	$host = "tcp://localhost"; 
@@ -15,7 +15,7 @@ function sendDataToJava($data){
 		//print 'SUCCESS!<br />';
 		fwrite($fp, $data);
 		while (! feof($fp)) {
-		  $return += fgets($fp);
+		  echo fgets($fp);
 		}
 		fclose($fp);
 	}
