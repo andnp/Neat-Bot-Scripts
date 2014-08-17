@@ -2,16 +2,12 @@ package data;
 
 public class SendResourcesCommand extends Command{
 	String res;
-	int issuable = 2;
-	SendResourcesCommand(String res, String coords, String amount){
+	int issuable = 5;
+	SendResourcesCommand(String res, String coords){
 		this.res = res;
 		this.coords = coords;
 		this.hasReceived.add(coords);
-		if(!res.equals("gold")){
-			command = "if(city.resources." + res + ".amount > 25000) sendresources " + coords + " " + res + " " + amount + " -2 -1 scout";
-		} else {
-			command = "if(city.resources." + res + " > 25000) sendresources " + coords + " " + res + " " + amount + " -2 -1 scout";
-		}
+		command = "sendresources " + coords + " " + res + " 25000 -2 1k scout";
 		System.out.println(command);
 	}
 	public String issueCommand(String issueCoords){

@@ -7,11 +7,7 @@ public class SendResourcesCommand extends Command{
 		this.res = res;
 		this.coords = coords;
 		this.hasReceived.add(coords);
-		if(!res.equals("gold")){
-			command = "if(city.resources." + res + ".amount > 25000) sendresources " + coords + " " + res + " " + amount + " -2 -1 scout";
-		} else {
-			command = "if(city.resources." + res + " > 25000) sendresources " + coords + " " + res + " " + amount + " -2 -1 scout";
-		}
+		command = "sendresources " + coords + " " + res + " " + amount + " -2 -1 scout";
 		System.out.println(command);
 	}
 	public String issueCommand(String issueCoords){
