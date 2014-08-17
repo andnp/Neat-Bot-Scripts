@@ -18,7 +18,7 @@ public class DataCollector {
 				Thread process = new Thread(new DataProcessor(clientSentence, cc));
 				process.start();
 			} else {
-				String coords = clientSentence.substring(clientSentence.indexOf("(") + 1, clientSentence.indexOf(")"));
+				String coords = clientSentence.substring(clientSentence.indexOf("("), clientSentence.indexOf(")"));
 				String output = cc.grabCommand(coords);
 				outToClient.writeBytes(output);
 				System.out.println(output);

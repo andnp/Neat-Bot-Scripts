@@ -8,7 +8,7 @@ public class DataProcessor implements Runnable{
 	}
 	public void processInput(){
 		if(processString.contains("sendresources")){
-			String coords = processString.substring(processString.indexOf("(") + 1, processString.indexOf(")"));
+			String coords = processString.substring(processString.indexOf("("), processString.indexOf(")"));
 			if(processString.contains(" f ")){
 				SendResourcesCommand command = new SendResourcesCommand("food", coords);
 				if(!cc.exists(command)) cc.add(command);
