@@ -8,7 +8,7 @@ public class SendResourcesCommand extends Command{
 		this.coords = coords;
 		this.hasReceived.add(coords);
 		if(!res.equals("gold")){
-			command = "if(city.resource." + res + ".amount > 25000) sendresources " + coords + " " + res + " " + amount + " -2 -1 scout";
+			command = "if(city.resources." + res + ".amount > 25000) sendresources " + coords + " " + res + " " + amount + " -2 -1 scout";
 		} else {
 			command = "if(city.resources." + res + " > 25000) sendresources " + coords + " " + res + " " + amount + " -2 -1 scout";
 		}
