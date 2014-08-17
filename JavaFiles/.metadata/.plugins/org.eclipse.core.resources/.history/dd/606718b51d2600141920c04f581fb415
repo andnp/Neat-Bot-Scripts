@@ -10,24 +10,19 @@ public class DataProcessor implements Runnable{
 		if(processString.contains("sendresources")){
 			String coords = processString.substring(processString.indexOf("("), processString.indexOf(")"));
 			if(processString.contains(" f ")){
-				SendResourcesCommand command = new SendResourcesCommand("food", coords);
-				if(cc.exists(command)) cc.add(command);
+				cc.add( new SendResourcesCommand("food", coords));
 			}
 			if(processString.contains(" w ")){
-				SendResourcesCommand command = new SendResourcesCommand("wood", coords);
-				if(cc.exists(command)) cc.add(command);
+				cc.add( new SendResourcesCommand("wood", coords));
 			}
 			if(processString.contains(" s ")){
-				SendResourcesCommand command = new SendResourcesCommand("stone", coords);
-				if(cc.exists(command)) cc.add(command);
+				cc.add( new SendResourcesCommand("stone", coords));
 			}
 			if(processString.contains(" i ")){
-				SendResourcesCommand command = new SendResourcesCommand("iron", coords);
-				if(cc.exists(command)) cc.add(command);
+				cc.add( new SendResourcesCommand("iron", coords));
 			}
 			if(processString.contains(" g ")){
-				SendResourcesCommand command = new SendResourcesCommand("gold", coords);
-				if(cc.exists(command)) cc.add(command);
+				cc.add( new SendResourcesCommand("gold", coords));
 			}
 		}
 	}

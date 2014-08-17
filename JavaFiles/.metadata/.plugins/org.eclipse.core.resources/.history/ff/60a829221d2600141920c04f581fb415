@@ -15,7 +15,7 @@ public abstract class Command {
 		}
 		return false;
 	}
-	public abstract boolean equals(Command cmd);
+	public abstract boolean exists(Command cmd);
 	
 	public abstract String issueCommand(String issueCoords);
 }

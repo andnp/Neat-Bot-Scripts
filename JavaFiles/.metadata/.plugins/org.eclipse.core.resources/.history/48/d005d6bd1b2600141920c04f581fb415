@@ -12,8 +12,4 @@ public class SendResourcesCommand extends Command{
 		this.hasReceived.add(issueCoords);
 		return command;
 	}
-	public boolean equals(Command com){
-		if(com.command != this.command) return false;
-		return true;
-	}
 }

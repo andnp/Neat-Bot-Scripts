@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public abstract class Command {
 	String coords;
-	String command;
 	ArrayList<String> hasReceived = new ArrayList<String>();
 	
 	public boolean hasBeenIssued(String coords){
@@ -15,7 +14,5 @@ public abstract class Command {
 		}
 		return false;
 	}
-	public abstract boolean equals(Command cmd);
-	
 	public abstract String issueCommand(String issueCoords);
 }
