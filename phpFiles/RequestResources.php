@@ -27,6 +27,6 @@ function main(){
 		$result = $result . "g";
 	}
 	sendDataToJava($result);
-	echo "" . $food . " " . $wood . " " . $stone . " " . $iron  . " " . $gold . " " . $minRes;
+	//echo "" . $food . " " . $wood . " " . $stone . " " . $iron  . " " . $gold . " " . $minRes;
 }
 ?>
