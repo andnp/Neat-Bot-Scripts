@@ -10,7 +10,7 @@ function main(){
 	$gold = $_REQUEST['gold'];
 	$minRes = $_REQUEST['min'];
 	$coords = $_REQUEST['coords'];
-	$result = "sendresources " . $coords . " ";
+	$result = "sendresources (" . $coords . ") ";
 	if($food < $minRes){
 		$result = $result . "f ";
 	}
