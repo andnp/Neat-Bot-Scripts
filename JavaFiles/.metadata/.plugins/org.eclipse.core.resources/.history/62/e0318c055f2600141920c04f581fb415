@@ -2,7 +2,6 @@ package data;
 
 public class SendResourcesCommand extends Command{
 	String res;
-	int issuable = 5;
 	SendResourcesCommand(String res, String coords){
 		this.res = res;
 		this.coords = coords;
@@ -12,7 +11,6 @@ public class SendResourcesCommand extends Command{
 	}
 	public String issueCommand(String issueCoords){
 		this.hasReceived.add(issueCoords);
-		timesIssued++;
 		return command;
 	}
 	public boolean equals(Command com){

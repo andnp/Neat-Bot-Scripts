@@ -6,7 +6,6 @@ public abstract class Command {
 	String coords;
 	String command;
 	int timesIssued = 0;
-	int issuable = 5;
 	ArrayList<String> hasReceived = new ArrayList<String>();
 	
 	public boolean hasBeenIssued(String coords){

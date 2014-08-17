@@ -2,7 +2,7 @@ package data;
 
 public class SendResourcesCommand extends Command{
 	String res;
-	int issuable = 5;
+	
 	SendResourcesCommand(String res, String coords){
 		this.res = res;
 		this.coords = coords;
