@@ -22,7 +22,6 @@ public class DataCollector {
 				String output = cc.grabCommand(coords);
 				outToClient.writeBytes(output);
 				System.out.println(output);
-				System.out.println(cc.size());
 			}
 			connectionSocket.close();
 		}
