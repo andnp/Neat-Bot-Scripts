@@ -21,7 +21,7 @@ resMin = 25000
 loops = 0
 //-----init filepaths------
 phpFilePath = "http://localhost/Neat-Bot-Scripts/phpFiles/"
-txtFilePath = "http://localhost/Neat-Bot-Scripts/TextFiles/"
+txtFilePath = "c:/wamp/www/Neat-Bot-Scripts/TextFiles/"
 
 
 
