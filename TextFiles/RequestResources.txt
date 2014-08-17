@@ -1,2 +1,2 @@
-POST phpFilePath + "RequestResources.php" {food:floor(city.resource.food.amount), wood:floor(city.resource.wood.amount), stone:floor(city.resource.stone.amount), iron:floor(city.resource.iron.amount), gold:floor(city.resource.gold.amount), min:resMin, coords:city.coords}
+POST phpFilePath + "RequestResources.php" {food:floor(city.resource.food.amount), wood:floor(city.resource.wood.amount), stone:floor(city.resource.stone.amount), iron:floor(city.resource.iron.amount), gold:floor(city.resource.gold), min:resMin, coords:city.coords}
 echo $result
