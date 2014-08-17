@@ -4,7 +4,8 @@ gosub variables
 label main
 loops = loops + 1
 ifgosub(loops > 10) runChecks
-
+POST phpFilePath + "RequestCommand.php" {coords:city.coords}
+echo $result
 goto main
 
 label runChecks
