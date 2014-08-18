@@ -9,8 +9,7 @@ public class CommandCollection extends ArrayList<Command> {
 		for(Command com : this){
 			if(!com.hasBeenIssued(coords)){
 				return com.issueCommand(coords);
-			} 
-			if(com.timesIssued > com.issuable){
+			} else if(com.timesIssued > com.issuable){
 				this.remove(com);
 			}
 		}
