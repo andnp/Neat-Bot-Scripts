@@ -9,19 +9,19 @@ public class CommandCollection extends ArrayList<Command> {
 	
 	public String grabCommand(String coords){
 		Collections.sort(this, new ScoreComparator());
-		ArrayList<Integer> toRemove = new ArrayList<Integer>();
-		for(int i = 0; i < this.size(); i++){
-			if(!this.get(i).hasBeenIssued(coords)){
-				return this.get(i).issueCommand(coords);
+		ArrayList<Command> toRemove = new ArrayList<Command>();
+		for(Command com : this){
+			if(!com.hasBeenIssued(coords)){
+				return com.issueCommand(coords);
 			} 
-			if(this.get(i).hasReceived.size() > this.get(i).timesIssuable){
-				toRemove.add(i);
-			} else if(this.get(i).timeIssued + 60000 <= System.currentTimeMillis()){
-				toRemove.add(i);
+			if(com.hasReceived.size() > com.timesIssuable){
+				toRemove.add(com);
+			} else if(com.timeIssued + 60000 <= System.currentTimeMillis()){
+				toRemove.add(com);
 			}
 		}
-		for(Integer i : toRemove){
-			this.remove(i);
+		for(Command com : toRemove){
+			this.remove(com);
 		}
 		return "";
 	}
