@@ -21,8 +21,8 @@ resMin = 25000
 //-----init time sync------
 loops = 0
 //-----init filepaths------
-phpFilePath = "http://localhost/Neat-Bot-Scripts/phpFiles/"
-txtFilePath = "http://localhost/Neat-Bot-Scripts/TextFiles/"
+phpFilePath = "http://10.0.0.20/Neat-Bot-Scripts/phpFiles/"
+txtFilePath = "http://10.0.0.20/Neat-Bot-Scripts/TextFiles/"
 
 call txtFilePath + "CheckIn.php"
 
