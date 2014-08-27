@@ -3,7 +3,7 @@ gosub variables
 
 label main
 loops = loops + 1
-ifgosub(loops > 10) runChecks
+ifgosub(loops > 29) runChecks
 POST phpFilePath + "RequestCommand.php" {coords:city.coords}
 execute $result
 goto main
