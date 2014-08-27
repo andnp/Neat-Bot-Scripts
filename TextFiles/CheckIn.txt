@@ -1,1 +1,1 @@
-@POST phpFilePath + "CheckIn.php" {food:city.resource.food.amount,wood:city.resource.wood.amount,stone:city.resource.stone.amount,iron:city.resource.iron.amount,gold:city.resource.gold,coords:city.coords}
+@POST phpFilePath + "UpdateCity.php" {food:city.resource.food.amount,wood:city.resource.wood.amount,stone:city.resource.stone.amount,iron:city.resource.iron.amount,gold:city.resource.gold,coords:city.coords}
