@@ -1,1 +1,0 @@
-POST phpFilePath + "RequestResources.php" {food:city.resource.food.amount, wood:city.resource.wood.amount, stone:city.resource.stone.amount, iron:city.resource.iron.amount, gold:city.resource.gold, min:resMin, coords:city.coords}

@@ -10,7 +10,7 @@ function main(){
 	$iron = $_REQUEST['iron'];
 	$gold = $_REQUEST['gold'];
 	
-	sendDataToJava($coords . " " . $food . " " . $wood . " " . $stone . " " . $iron . " " . $gold);
+	sendDataToJava("CheckIn" . $coords . " " . $food . " " . $wood . " " . $stone . " " . $iron . " " . $gold);
 }
 
 ?>

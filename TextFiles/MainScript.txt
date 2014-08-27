@@ -10,7 +10,7 @@ goto main
 
 label runChecks
 call txtFilePath + "SmartTrade.txt"
-call txtFilePath + "RequestResources.txt"
+call txtFilePath + "CheckIn.php"
 
 loops = 0
 return
@@ -24,6 +24,6 @@ loops = 0
 phpFilePath = "http://localhost/Neat-Bot-Scripts/phpFiles/"
 txtFilePath = "http://localhost/Neat-Bot-Scripts/TextFiles/"
 
-
+call txtFilePath + "CheckIn.php"
 
 return
