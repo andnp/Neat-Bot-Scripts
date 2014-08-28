@@ -89,7 +89,7 @@ build fh:10,e:9
 #---Troops---
 troop wo:5,w:5,s:5,p:5,sw:5,a:5,c:5,cata:5,t:5,b:5,r:5
 troop w:250,s:20
-troop a:4k,s:4k
+troop a:4k,s:4k,wo:500
 troop a:10k,s:20k,b:500,t:500
 troop b:5k,t:5k,a:100k,s:100k
 
