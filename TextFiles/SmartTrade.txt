@@ -20,6 +20,7 @@ res = floor(random() * 4) // choose resource to trade randomly, helps with multi
 resName = ResourceIntNames[res]
 
 label check
+ifgoto city.getBuildingLevel(23) < 2 end
 if city.tradesArray.length > city.getBuildingLevel(23) - 2 execute "sleep " + delay
 if city.tradesArray.length > city.getBuildingLevel(23) - 2 execute "canceltrade " + city.tradesArray[0].id
 if city.tradesArray.length > city.getBuildingLevel(23) - 2 goto check
@@ -35,3 +36,4 @@ sellVolume = floor(min(canSell, sellLimit, MAX_TRADE - max(0, floor(min(maxRes -
 if sellVolume > 0 execute "sell " + res + " " + sellVolume + " " + prices[1]
 buyVolume = floor(min(maxRes - city.resource[resName].amount, (city.resource.gold - resGold) / prices[2], MAX_TRADE))
 if buyVolume > 0 execute "buy " + res + " " + buyVolume + " " + prices[0]
+label end
