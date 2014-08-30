@@ -7,6 +7,7 @@ public abstract class Command {
 	String command;
 	int timesIssuable;
 	long timeIssued;
+	CityList cl;
 	ArrayList<String> hasReceived = new ArrayList<String>();
 	
 	public boolean hasBeenIssued(String coords){
@@ -24,5 +25,5 @@ public abstract class Command {
 	
 	public abstract boolean equals(Command cmd);
 	
-	public abstract String issueCommand(String issueCoords);
+	public abstract String issueCommand(CityBot bot);
 }

@@ -1,57 +1,32 @@
 package data;
 
+import java.util.Scanner;
+
 public class DataProcessor implements Runnable{
 	private static String processString = "";
 	CommandCollection cc;
+	CityList cl;
 	public void run(){
 		processInput();
 	}
 	public void processInput(){
-		if(processString.contains("sendresources")){
-			processSendResources();
+		if(processString.contains("CheckIn")){
+			processCheckIn();
 		}
 	}
-	DataProcessor(String input, CommandCollection cc){
+	DataProcessor(String input, CommandCollection cc, CityList cl){
 		processString = input;
 		this.cc = cc;
+		this.cl = cl;
 	}
 	
-	private void processSendResources(){
+	private void processCheckIn(){
 		String coords = processString.substring(processString.indexOf("(") + 1, processString.indexOf(")"));
-		if(processString.contains(" f ")){
-			SendResourcesCommand command = new SendResourcesCommand("food", coords, "25000");
-			if(!cc.exists(command)) cc.add(command);
-		} else {
-			SendResourcesCommand command = new SendResourcesCommand("food", coords, "1000b");
-			if(!cc.exists(command)) cc.add(command);
-		}
-		if(processString.contains(" w ")){
-			SendResourcesCommand command = new SendResourcesCommand("wood", coords, "25000");
-			if(!cc.exists(command)) cc.add(command);
-		}else {
-			SendResourcesCommand command = new SendResourcesCommand("wood", coords, "1000b");
-			if(!cc.exists(command)) cc.add(command);
-		}
-		if(processString.contains(" s ")){
-			SendResourcesCommand command = new SendResourcesCommand("stone", coords, "25000");
-			if(!cc.exists(command)) cc.add(command);
-		}else {
-			SendResourcesCommand command = new SendResourcesCommand("stone", coords, "1000b");
-			if(!cc.exists(command)) cc.add(command);
-		}
-		if(processString.contains(" i ")){
-			SendResourcesCommand command = new SendResourcesCommand("iron", coords, "25000");
-			if(!cc.exists(command)) cc.add(command);
-		}else {
-			SendResourcesCommand command = new SendResourcesCommand("iron", coords, "1000b");
-			if(!cc.exists(command)) cc.add(command);
-		}
-		if(processString.contains(" g ")){
-			SendResourcesCommand command = new SendResourcesCommand("gold", coords, "25000");
-			if(!cc.exists(command)) cc.add(command);
-		}else {
-			SendResourcesCommand command = new SendResourcesCommand("gold", coords, "1000b");
-			if(!cc.exists(command)) cc.add(command);
-		}
+		Scanner sc = new Scanner(processString.substring( processString.indexOf(")") + 1 ));
+		CityBot bot = new CityBot(coords, cc, cl);
+		
+		bot.addRes((int)sc.nextInt(),(int)sc.nextInt(),(int)sc.nextInt(),(int)sc.nextInt(),(int)sc.nextInt());
+		cl.addCity(bot);
+		sc.close();
 	}
 }

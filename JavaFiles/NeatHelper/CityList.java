@@ -16,4 +16,19 @@ public class CityList extends ArrayList<CityBot>{
 			this.remove(bot);
 		}
 	}
+	public void addCity(CityBot newBot){
+		boolean canAdd = true;
+		for(CityBot bot : this){
+			if(bot.coords.equals(newBot.coords)){
+				canAdd = false;
+			}
+		}
+		if(canAdd) this.add(newBot);
+	}
+	public CityBot getByCoords(String coords){
+		for(CityBot bot : this){
+			if(bot.coords.equals(coords)) return bot;
+		}
+		return new CityBot("Error", new CommandCollection(this), this);
+	}
 }

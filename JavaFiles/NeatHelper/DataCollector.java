@@ -4,7 +4,8 @@ import java.io.*;
 import java.net.*;
 
 public class DataCollector {
-	private static CommandCollection cc = new CommandCollection();
+	private static CityList cl = new CityList();
+	private static CommandCollection cc = new CommandCollection(cl);
 	public static void main(String[] args) throws Exception{
 		String clientSentence;
 		ServerSocket welcomeSocket = new ServerSocket(6789);
@@ -15,7 +16,7 @@ public class DataCollector {
 			clientSentence = inFromClient.readLine();
 			System.out.println("received: " + clientSentence);
 			if(!clientSentence.contains("RequestCommand")){
-				Thread process = new Thread(new DataProcessor(clientSentence, cc));
+				Thread process = new Thread(new DataProcessor(clientSentence, cc, cl));
 				process.start();
 			} else {
 				String coords = clientSentence.substring(clientSentence.indexOf("(") + 1, clientSentence.indexOf(")"));

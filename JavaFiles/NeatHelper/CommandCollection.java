@@ -6,18 +6,27 @@ import java.util.Comparator;
 
 public class CommandCollection extends ArrayList<Command> {
 	private static final long serialVersionUID = 1L;
+	CityList cl;
+	
+	CommandCollection(CityList cl){
+		this.cl = cl;
+	}
 	
 	public String grabCommand(String coords){
 		Collections.sort(this, new ScoreComparator());
 		ArrayList<Command> toRemove = new ArrayList<Command>();
+		String ret = "";
 		for(Command com : this){
 			if(!com.hasBeenIssued(coords)){
-				return com.issueCommand(coords);
+				ret = com.issueCommand(cl.getByCoords(coords));
 			} 
-			if(com.hasReceived.size() > com.timesIssuable){
+			if(com.hasReceived.size() == cl.size()){
 				toRemove.add(com);
 			} else if(com.timeIssued + 60000 <= System.currentTimeMillis()){
 				toRemove.add(com);
+			}
+			if(!ret.isEmpty()){
+				return ret;
 			}
 		}
 		for(Command com : toRemove){
