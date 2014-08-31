@@ -1,12 +1,14 @@
 package data;
 
+import commands.SendResourcesCommand;
+
 public class CityBot {
 	CommandCollection cc;
 	CityList cl;
 	long last_check_in;
 	long HALF_HOUR = 1000 * 60 * 30;
 	int wood = 0, food = 0, stone = 0, iron = 0, gold = 0;
-	String coords;
+	public String coords;
 	
 	CityBot(String coords, CommandCollection cc, CityList cl){
 		this.last_check_in = System.currentTimeMillis();
@@ -22,7 +24,6 @@ public class CityBot {
 			return false;
 		}
 	}
-	
 	public void addRes(int food, int wood, int stone, int iron, int gold){
 		this.food = food;
 		this.wood = wood;

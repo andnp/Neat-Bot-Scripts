@@ -1,9 +1,12 @@
-package data;
+package commands;
+
+import data.CityBot;
+import data.CityList;
 
 public class SendResourcesCommand extends Command{
 	String res;
 	int timesIssuable = 2;
-	SendResourcesCommand(String res, String coords, String amount, CityList cl){
+	public SendResourcesCommand(String res, String coords, String amount, CityList cl){
 		this.cl = cl;
 		this.res = res;
 		this.coords = coords;

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import commands.Command;
+
 public class CommandCollection extends ArrayList<Command> {
 	private static final long serialVersionUID = 1L;
 	CityList cl;

@@ -6,7 +6,9 @@ import java.net.*;
 public class DataCollector {
 	private static CityList cl = new CityList();
 	private static CommandCollection cc = new CommandCollection(cl);
+	private static Thread tecThread = new Thread(new TimedEventCreator(cc, cl));
 	public static void main(String[] args) throws Exception{
+		tecThread.start();
 		String clientSentence;
 		ServerSocket welcomeSocket = new ServerSocket(6789);
 		while(true){
