@@ -1,5 +1,7 @@
 package data;
 
+import java.util.Scanner;
+
 import commands.SendResourcesCommand;
 
 public class CityBot {
@@ -8,6 +10,7 @@ public class CityBot {
 	long last_check_in;
 	long HALF_HOUR = 1000 * 60 * 30;
 	int wood = 0, food = 0, stone = 0, iron = 0, gold = 0;
+	int[] troops = {0,0,0,0,0,0,0,0,0,0,0};
 	public String coords;
 	
 	CityBot(String coords, CommandCollection cc, CityList cl){
@@ -58,5 +61,16 @@ public class CityBot {
 		} else {
 			cc.add(new SendResourcesCommand("gold", this.coords, "1000b", cl));
 		}
+		this.last_check_in = System.currentTimeMillis();
+	}
+	
+	public void addTroops(String troopString){
+		Scanner sc = new Scanner(troopString);
+		int i = 0;
+		while(sc.hasNextInt()){
+			troops[i] = sc.nextInt();
+			i++;
+		}
+		sc.close();
 	}
 }

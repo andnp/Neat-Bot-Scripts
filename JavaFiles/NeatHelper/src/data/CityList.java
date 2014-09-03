@@ -29,6 +29,6 @@ public class CityList extends ArrayList<CityBot>{
 		for(CityBot bot : this){
 			if(bot.coords.equals(coords)) return bot;
 		}
-		return new CityBot("Error", new CommandCollection(this), this);
+		return null;
 	}
 }
