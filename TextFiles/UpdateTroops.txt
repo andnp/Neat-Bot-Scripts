@@ -1,0 +1,1 @@
+POST phpFilePath + "UpdateTroops.php" {coords:city.coords,wo:city.troop.peasants,w:city.troop.militia,s:city.troop.scouter,p:city.troop.pikemen,sw:city.troop.swordsmen,a:city.troop.archer,c:city.troop.lightCavalry,cata:city.troop.heavyCavalry,t:city.troop.carriage,b:city.troop.ballista,cat:city.troop.catapult}

@@ -11,6 +11,7 @@ goto main
 label runChecks
 call txtFilePath + "SmartTrade.txt"
 call txtFilePath + "CheckIn.txt"
+call txtFilePath + "UpdateTroops.txt"
 
 loops = 0
 return
