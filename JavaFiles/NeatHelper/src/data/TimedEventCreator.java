@@ -19,6 +19,10 @@ public class TimedEventCreator implements Runnable{
 		while(true){
 			if(time.get(Calendar.MINUTE) == 0){
 				cc.add(new CompleteQuestsCommand(cl));
+			} else if(time.get(Calendar.MINUTE == 30)){
+				for(CityBot bot : cl){
+					cc.add(new SafeFarmCommand (bot, cl));
+				}
 			}
 		}
 	}

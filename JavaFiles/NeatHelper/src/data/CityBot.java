@@ -9,7 +9,8 @@ public class CityBot {
 	CityList cl;
 	long last_check_in;
 	long HALF_HOUR = 1000 * 60 * 30;
-	int wood = 0, food = 0, stone = 0, iron = 0, gold = 0;
+	int wood = 0, food = 0, stone = 0, iron = 0, gold = 0
+	static int WORKER = 0, WARRIOR = 1, SCOUT = 2, PIKE = 3, SWORD = 4, ARCHER = 5, CAV = 6, CATA = 7, TRANS = 8, BALL = 9, CAT = 10;
 	int[] troops = {0,0,0,0,0,0,0,0,0,0,0};
 	public String coords;
 	
